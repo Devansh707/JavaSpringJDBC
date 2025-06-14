@@ -17,7 +17,19 @@ public class JDBCCon {
         Connection conn = DriverManager.getConnection(url, username, pass);
         System.out.println("Connection Extablished");
 
+        int sid = 101;
+        String jessy = "Jessy";
+        int jMarks = 91;
 
+        String sql = "insert into student values (?,?,?)";
+        PreparedStatement st = conn.prepareStatement(sql);
+        st.setInt(1, sid);
+        st.setString(2, jessy);
+        st.setInt(3, jMarks);
+
+        st.execute();
+
+        conn.close();
 
     }
 }
